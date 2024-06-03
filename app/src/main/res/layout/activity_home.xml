@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/home_guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:maxWidth="320dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/home_guideline_bottom"
+        app:layout_constraintEnd_toEndOf="@id/home_guideline_end"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="@id/home_guideline_start"
+        app:layout_constraintTop_toTopOf="@id/home_guideline_top"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintWidth_max="320dp"
+        app:layout_constraintWidth_min="0dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:text="Hola, Nombre"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="8dp"
+            android:labelFor="@id/email_input"
+            android:text="Este es tu balance total:"
+            android:textSize="17sp" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="14dp">
+
+                <TextView
+                    android:id="@+id/totalBalance"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="$1000"
+                    android:textSize="28sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/hideBalanceIcon"
+                    style="?attr/materialIconButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="Show or hide balance"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text=""
+                    app:cornerRadius="24dp"
+                    app:icon="@drawable/eye"
+                    app:iconGravity="start"
+                    app:iconSize="24dp"
+                    app:iconTint="@color/primary" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:labelFor="@id/email_input"
+                    android:text="Este mes:"
+                    android:textSize="17sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/see_more_months_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:contentDescription="Ver más meses"
+                    android:padding="0dp"
+                    android:textAlignment="textEnd"
+                    android:textAllCaps="false"
+                    android:textColor="@color/primary" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="14dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="Recibiste:"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/monthlyIncome"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="$1000"
+                            android:textSize="24sp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="14dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="Sacaste:"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/monthlyExpenses"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="$1000"
+                            android:textSize="24sp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="2dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_income_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:backgroundTint="@color/primary"
+                android:paddingVertical="16dp"
+                android:text="Agregar ingreso"
+                android:textAllCaps="false"
+                android:textColor="#F1F1F1"
+                android:textSize="11sp"
+                app:cornerRadius="8dp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_expense_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:backgroundTint="@color/primary"
+                android:paddingVertical="16dp"
+                android:text="Agregar gasto"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                app:cornerRadius="8dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:labelFor="@id/email_input"
+            android:text="Ultimos movimientos:"
+            android:textSize="17sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recent_trans_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="46dp">
+
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/bottomNavigationLayout"
+        layout="@layout/bottom_navigation_layout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

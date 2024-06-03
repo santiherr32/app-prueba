@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="add_transaction_bottom_sheet_height">800dp</dimen>
+</resources>
