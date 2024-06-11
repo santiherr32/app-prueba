@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="83dp"
-            android:text="@string/welcome_login_text"
+            android:text="Registrarse"
             android:textStyle="bold"
             android:textSize="28sp" />
 
@@ -99,18 +99,35 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginStart="5dp"
-            android:layout_marginBottom="17dp"
-            android:textSize="13sp" />
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="8dp"
+            android:labelFor="@id/password_confirm_input"
+            android:text="Repite tu contraseña"
+            android:textSize="17sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="?attr/colorPrimary"
+            style="@style/TextInput"
+            app:hintEnabled="false"
+            android:layout_marginBottom="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password_confirm_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password_input_hint"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/login_button"
+            android:id="@+id/register_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="23dp"
-            android:text="@string/login_button_text"
+            android:text="Registrarse"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp"
@@ -123,7 +140,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="82dp"
             android:layout_marginBottom="18dp"
-            android:text="@string/login_more_options_text"
+            android:text="O ingresa con:"
             android:textSize="16sp" />
 
 
@@ -136,7 +153,6 @@
             android:paddingHorizontal="2dp">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/google_signin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -168,14 +184,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Si no tienes cuenta, "
+                android:text="Si ya tienes cuenta, "
                 android:textSize="16sp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/register_button"
+                android:id="@+id/login_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="registrate aqui"
+                android:text="inicia sesión aqui"
                 android:backgroundTint="@android:color/transparent"
                 android:textColor="@color/primary"
                 android:padding="0dp"

@@ -14,22 +14,37 @@ import java.time.temporal.ChronoUnit
 import java.util.Currency
 import java.util.Locale
 
-class CardAdapter(private val dataList: List<Transaction>) :
-    RecyclerView.Adapter<CardAdapter.ViewHolder>() {
+class CardAdapter(
+    private val dataList: List<Transaction>, private val listener: OnItemClickListener
+) : RecyclerView.Adapter<CardAdapter.ViewHolder>() {
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
+    }
+
+    inner class ViewHolder(itemView: View, private val listener: OnItemClickListener) :
+        RecyclerView.ViewHolder(itemView) {
         val transactionName: TextView = itemView.findViewById(R.id.transaction_name)
         val categorySymbol: ImageView = itemView.findViewById(R.id.category_symbol)
         val transactionTypeBadge: ImageView = itemView.findViewById(R.id.transaction_type_badge)
         val transactionAmount: TextView = itemView.findViewById(R.id.transaction_amount)
         val transactionAccount: TextView = itemView.findViewById(R.id.transaction_account)
         val transactionDate: TextView = itemView.findViewById(R.id.transaction_date)
+
+        init {
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    listener.onItemClick(position)
+                }
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.transaction_item_card, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(view, listener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -54,41 +69,34 @@ class CardAdapter(private val dataList: List<Transaction>) :
             formattedAmount
         }
 
+        val amountTextColor = when (currentTransaction.type) {
+            "income" -> 0xFF2C7756.toInt()
+            "expense" -> 0xFFEB4639.toInt()
+            else -> holder.transactionAmount.currentTextColor
+        }
 
-        holder.transactionAmount.text = displayAmount
-        holder.transactionAccount.text = currentTransaction.account
+        holder.transactionAmount.apply {
+            text = displayAmount
+            setTextColor(amountTextColor)
+        }
+        holder.transactionAccount.text = currentTransaction.account.toString()
 
-        // Format transaction date
         val formattedDate = formatTransactionDate(currentTransaction.date)
         holder.transactionDate.text = formattedDate
 
         holder.transactionName.text = currentTransaction.name
 
-        val categorySymbolResource = holder.itemView.context.resources.getIdentifier(
-            currentTransaction.category,
-            "drawable",
-            holder.itemView.context.packageName
-        )
-        holder.categorySymbol.setImageDrawable(
-            ContextCompat.getDrawable(
-                holder.itemView.context,
-                categorySymbolResource
-            )
-        )
 
-        // Set the badge image based on the type of item
         val badgeImageResource = when (currentTransaction.type) {
             "income" -> R.drawable.upward_arrow
             "expense" -> R.drawable.downward_arrow
-            // Add more cases for other types if needed
             else -> null
         }
         if (badgeImageResource != null) {
             holder.transactionTypeBadge.visibility = View.VISIBLE
             holder.transactionTypeBadge.setImageDrawable(
                 ContextCompat.getDrawable(
-                    holder.itemView.context,
-                    badgeImageResource
+                    holder.itemView.context, badgeImageResource
                 )
             )
         } else {

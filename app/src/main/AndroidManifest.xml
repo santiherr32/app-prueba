@@ -25,11 +25,15 @@
         </activity>
         <activity
             android:name=".HomeActivity"
-            android:exported="true">
+            android:exported="false">
         </activity>
         <activity
             android:name=".TransactionsActivity"
-            android:exported="true">
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false">
         </activity>
     </application>
 

@@ -29,7 +29,7 @@
                 android:contentDescription="Icono de categoria salud"
                 android:paddingEnd="5dp"
                 android:paddingStart="0dp"
-                android:src="@drawable/health_cat" />
+                android:src="@drawable/salud" />
 
             <ImageView
                 android:id="@+id/transaction_type_badge"

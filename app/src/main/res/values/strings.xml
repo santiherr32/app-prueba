@@ -53,4 +53,5 @@
     <string name="google_signin_button_text">Google</string>
     <string name="apple_signin_button_text">Apple</string>
     <string name="welcome_login_text">Bienvenido de vuelta</string>
+    <string name="default_web_client_id">415718638713-f4unnuhk3853skhviichrq6kj1i7m3sh.apps.googleusercontent.com</string>
 </resources>
